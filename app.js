@@ -1,37 +1,24 @@
 // 1)
 let arr1=[23,1,5,3,12,4,9,81,7,11,22,31,6]
-let arr2=[]
-let arr3=[]
-console.log(arr1);
-for (let i = 0; i < arr1.length; i++) {
-    if(arr1[i]%2===0){
-       arr2.push(arr1[i])
+let even=-Infinity
+let odd=Infinity
+let evenindex
+let oddindex
+for (let i = 0; i< arr1.length; i++) {
+  if(arr1[i]>even && arr1[i]%2===0){
+    even=arr1[i]
+    evenindex=i
+  }
+  if(arr1[i]<odd && arr1[i]%2!==0){
+    odd=arr1[i]
+    oddindex=i
+  }
     }
-    else{
-        arr3.push(arr1[i])
-    }
-}
-arr2.sort(function(a, b) {
-  return a - b;
-});
-arr3.sort(function(a, b) {
-    return a - b;
-  });
-for (let i = 0; i < arr1.length; i++) {
-    if(arr1[i]===arr2[arr2.length-1]){
-        arr1[i]=arr3[0]
-        
-    }
-    
-}
-console.log(arr1);
-for (let i = 0; i < arr1.length; i++) {
-    if(arr1[i]===arr3[0]){
-        arr1[i]=arr2[0]
-    }
-    
-}
-console.log(arr1);
+  arr1[evenindex]=odd
+  arr1[oddindex]=even
+   
+
+console.log(arr1)
 // 2)
 let  arr = [    { urunAdi: "Beyaz Ekmek", fiyat: 2.5, stok: 100, kategori: "Ekmek" },
 { urunAdi: "Süt", fiyat: 3.75, stok: 50, kategori: "Süt ve Süt Ürünleri" },
